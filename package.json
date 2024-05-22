@@ -1,0 +1,29 @@
+{
+  "name": "iptv",
+  "version": "1.0.0",
+  "description": "Free IPTV",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FCapobianchi/iptv.git"
+  },
+  "keywords": [
+    "IPTV"
+  ],
+  "author": "Fabiano Capobianchi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FCapobianchi/iptv/issues"
+  },
+  "homepage": "https://github.com/FCapobianchi/iptv#readme",
+  "devDependencies": {
+    "electron": "^29.2.0"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0"
+  }
+}

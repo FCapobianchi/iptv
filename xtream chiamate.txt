@@ -1,0 +1,88 @@
+http://tedesco.masterapp1.xyz/get.php?username=FABIANO4890&password=bYHJJ9XA5m&type=m3u_plus&output=ts
+
+LIVES (player_api.php) :
+http://tedesco.masterapp1.xyz/player_api.php?username=FABIANO4890&password=bYHJJ9XA5m&action=get_live_streams
+http://tedesco.masterapp1.xyz/player_api.php?username=FABIANO4890&password=bYHJJ9XA5m&action=get_live_categories
+http://tedesco.masterapp1.xyz/player_api.php?username=FABIANO4890&password=bYHJJ9XA5m&action=get_live_streams&category_id=6
+
+
+
+http://tedesco.masterapp1.xyz/player_api.php?username=FABIANO4890&password=bYHJJ9XA5m&action=get_vod_streams
+http://tedesco.masterapp1.xyz/xmltv.php?username=FABIANO4890&password=bYHJJ9XA5m
+
+
+http://tedesco.masterapp1.xyz/player_api.php?username=FABIANO4890&password=bYHJJ9XA5m&action=get_short_epg&stream_id=629
+
+http://tedesco.masterapp1.xyz/player_api.php?username=FABIANO4890&password=bYHJJ9XA5m&action=get_simple_date_table&stream_id=629
+
+
+http://tedesco.masterapp1.xyz/live/FABIANO4890/bYHJJ9XA5m/392819.ts
+http://tedesco.masterapp1.xyz/live/FABIANO4890/bYHJJ9XA5m/405024.ts
+http://tedesco.masterapp1.xyz/live/FABIANO4890/bYHJJ9XA5m/629.ts
+
+
+LIVES (player_api.php) :
+
+Get All live streams list :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_live_streams
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_live_streams
+Get live categories list :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_live_categories
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_live_categories
+Get streams list of a specific live category :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_live_streams&category_id=<X>
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_live_streams&category_id=25
+MOVIES (VOD) (player_api.php) :
+
+Get All VOD streams list :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_vod_streams
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_vod_streams
+Get VOD categories list :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_vod_categories
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_vod_categories
+Get stream list of a specific VOD category :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_vod_streams&category_id=<X>
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_vod_streams&category_id=4526
+Get VOD stream infos :
+
+Request : <url>/player_api.php?username=<user>&password=c&action=get_vod_info&vod_id=<X>
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_vod_info&vod_id=999
+SERIES (player_api.php) :
+
+Get All serie streams list :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_series
+Exemple : <http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_series
+Get serie categories list :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_series_categories
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_series_categories
+Get streams list of a specific series category :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_series&category_id=<X>
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_series&category_id=214>
+Get a serie infos :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_series_info&series=<X>
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_series_info&series=865421
+EPG (xmltv.php or player_api.php) :
+
+Get full EPG list for ALL Streams :
+
+Request : <url>/xmltv.php?username=<user>&password=<pwd>
+Exemple : http://xtreamcode.ex/xmltv.php?username=Mike&password=1234
+Get short EPG for a dedicated live streams :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_short_epg&stream_id=36475
+can add &limit=<X> param (default=4)
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_short_epg&stream_id=55555
+Get full EPG for a dedicated live stream :
+
+Request : <url>/player_api.php?username=<user>&password=<pwd>&action=get_simple_date_table&stream_id=<X>
+Exemple : http://xtreamcode.ex/player_api.php?username=Mike&password=1234&action=get_simple_date_table&stream_id=55555

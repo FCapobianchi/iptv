@@ -1,0 +1,66 @@
+{
+    "num": 14,
+    "name": "I soliti idioti 3 - Il ritorno - 2024",
+    "stream_type": "movie",
+    "stream_id": 422869,
+    "stream_icon": "https:\/\/image.tmdb.org\/t\/p\/w600_and_h900_bestv2\/yaURYyDgYWkXTbGEE6HYDGW3pYl.jpg",
+    "rating": "4.8",
+    "rating_5based": 2.4,
+    "tmdb": 1148368,
+    "trailer": "",
+    "added": "1715380398",
+    "is_adult": 0,
+    "category_id": "68",
+    "category_ids": [
+        68
+    ],
+    "container_extension": "mkv",
+    "custom_sid": null,
+    "direct_source": ""
+}
+
+
+{
+    "num": 1625,
+    "name": "VIP IT: SKY PRIMAFILA WWE HD",
+    "stream_type": "live",
+    "stream_id": 392819,
+    "stream_icon": "",
+    "epg_channel_id": "",
+    "added": "1693607699",
+    "is_adult": 0,
+    "category_id": "217",
+    "category_ids": [
+        217
+    ],
+    "custom_sid": null,
+    "tv_archive": 0,
+    "direct_source": "",
+    "tv_archive_duration": 0
+}
+
+
+{
+    "num": 2567,
+    "name": "9-1-1",
+    "series_id": 385,
+    "cover": "https:\/\/image.tmdb.org\/t\/p\/w600_and_h900_bestv2\/jvStfYRsDrcVymTEgRbyHqpBXwz.jpg",
+    "plot": "Le esperienze ad alta tensione di un gruppo di professionisti che operano nell'ambito dei servizi di emergenza - poliziotti, paramedici, vigili del fuoco. Uomini e donne chiamati nelle situazioni pi\u00c3\u00b9 scioccanti, imprevedibili, intense ed emozionanti, i quali mettono le proprie vite in pericolo per salvare il prossimo. Mentre lo fanno, il sergente Athena Grant, il capitano dei vigili del fuoco Bobby Nash, l'operatrice del 911 Abby Clark e i loro colleghi devono cercare inoltre di bilanciare gli impegni e le difficolt\u00c3\u00a0 della loro professione con le rispettive vite private.",
+    "cast": "Peter Krause, Angela Bassett, Oliver Stark, Kenneth Choi, Aisha Hinds",
+    "director": "",
+    "genre": "Dramma, Action & Adventure, Crime",
+    "releaseDate": "",
+    "last_modified": "1715869797",
+    "rating": "8",
+    "rating_5based": "4",
+    "backdrop_path": [
+        "https:\/\/image.tmdb.org\/t\/p\/w1280\/v11aUVzPKSOJ9nKL1EMMbQaU5VC.jpg"
+    ],
+    "youtube_trailer": "",
+    "tmdb": "75219",
+    "episode_run_time": "45",
+    "category_id": "360",
+    "category_ids": [
+        360
+    ]
+},
