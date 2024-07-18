@@ -24,6 +24,7 @@
     "electron": "^29.2.0"
   },
   "dependencies": {
+    "@cycjimmy/jsmpeg-player": "^6.0.5",
     "electron-store": "^8.2.0"
   }
 }

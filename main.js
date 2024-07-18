@@ -4,10 +4,16 @@ const path = require('node:path');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
+const JSMpeg = require('@cycjimmy/jsmpeg-player');
+
 var child_process = require ("child_process");
 
 let storeWindow;
 let mainWindow;
+let modalWindow;
+let action;
+let parameter;
+let value;
 
 /**  SEZIONE DI GESTIONE FUNCTION DI DEFAULT DELL'APP */
 const createWindow = () => {
@@ -50,9 +56,6 @@ app.on('window-all-closed', () => {
 	}
 });
 
-
-
-
 /**
  * Downloads file from remote HTTP[S] host and puts its contents to the
  * specified location.
@@ -67,30 +70,30 @@ async function download(action, filePath) {
 		let fileInfo = null;
 
 		const request = proto.get(url, response => {
-		if (response.statusCode !== 200) {
-			fs.unlink(filePath, () => {
-			reject(new Error(`Failed to get '${url}' (${response.statusCode})`));
-			});
-			return;
-		}
+			if (response.statusCode !== 200) {
+				fs.unlink(filePath, () => {
+					reject(new Error(`Failed to get '${url}' (${response.statusCode})`));
+				});
+				return;
+			}
 
-		fileInfo = {
-			mime: response.headers['content-type'],
-			size: parseInt(response.headers['content-length'], 10),
-		};
+			fileInfo = {
+				mime: response.headers['content-type'],
+				size: parseInt(response.headers['content-length'], 10),
+			};
 
-		response.pipe(file);
+			response.pipe(file);
 		});
 
 		// The destination stream is ended by the time it's called
 		file.on('finish', () => resolve(fileInfo));
 
 		request.on('error', err => {
-		fs.unlink(filePath, () => reject(err));
+			fs.unlink(filePath, () => reject(err));
 		});
 
 		file.on('error', err => {
-		fs.unlink(filePath, () => reject(err));
+			fs.unlink(filePath, () => reject(err));
 		});
 
 		request.end();
@@ -106,20 +109,81 @@ download("get_vod_categories", path.join(app.getPath('userData'), 'vod_categorie
 download("get_series", path.join(app.getPath('userData'), 'series.json'));
 download("get_series_categories", path.join(app.getPath('userData'), 'series_categories.json'));
 
-
-
+/**
+ * ipcMain functions
+ */
 ipcMain.on('getJson', (event,data)=>{
 	console.log('getJson');
-	console.log(data);
 	let filepath = path.join(app.getPath('userData')+'/'+data.filename+'.json');
 	console.log(filepath);
 	fs.readFile(filepath, 'utf8', (err, data) => {
-		console.log(data);
 		mainWindow.webContents.send('parseJson',data);
 	});
 
 });
 
+ipcMain.on('setParameters', (event,data)=>{
+	console.log('setParameters');
+	console.log(data);
+    action = data.action;
+	parameter = data.parameter;
+	value = data.value;
+});
+
+ipcMain.on('getInfo', (event)=>{
+	let url = 'http://tedesco.masterapp1.xyz/player_api.php?username=FABIANO4890&password=bYHJJ9XA5m&action='+action+'&'+parameter+'='+value;
+	console.log('getInfo');
+	console.log(url);
+	const proto = !url.charAt(4).localeCompare('s') ? https : http;
+	return new Promise((resolve, reject) => {
+		let request = proto.get(url, (response) => {
+			if (response.statusCode !== 200) {
+				console.error(`Did not get an OK from the server. Code: ${response.statusCode}`);
+				response.resume();
+				return;
+			}
+		
+			let data = '';
+		
+			response.on('data', (chunk) => {
+				data += chunk;
+			});
+		
+			response.on('close', () => {
+				mainWindow.webContents.send('parseJson',data);
+			});
+		});
+	});
+});
+
+ipcMain.on('openModal', (event,url)=>{
+    modalWindow = new BrowserWindow({
+        width: 900,
+        height: 800,
+        minWidth: 400,
+        minHeight: 300,        
+        parent: mainWindow,
+        modal: true,
+        show: false,
+        roundedCorners: true,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            allowRunningInsecureContent: true,		
+			preload: path.join(__dirname, 'js/modal.js')
+        } 
+
+    });
+    modalWindow.on('close', function(){
+        modalWindow = null
+    })
+    modalWindow.loadURL(url);
+    modalWindow.show()
+});
+
+ipcMain.on('changePage', (event,data)=>{
+    mainWindow.loadFile('./html/'+data);
+});
 
 ipcMain.on('openVLC', (event,data)=>{
 	// Spawn VLC

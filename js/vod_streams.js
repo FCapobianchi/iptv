@@ -11,20 +11,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
         Object.entries(jSon).forEach(([key,element]) => {
             // console.log(key);
-            console.log(element.stream_id);
+            console.log(element);
             const ancora = document.createElement("a");
             //http://tedesco.masterapp1.xyz/live/FABIANO4890/bYHJJ9XA5m/629.ts
-            ancora.href = "http://tedesco.masterapp1.xyz/vod_streams/FABIANO4890/bYHJJ9XA5m/"+element.stream_id+".ts";
-            //ancora.href = "http://tedesco.masterapp1.xyz/movie/FABIANO4890/bYHJJ9XA5m/"+element.stream_id+".ts";
-            
+            ancora.href = "http://tedesco.masterapp1.xyz/movie/FABIANO4890/bYHJJ9XA5m/"+element.stream_id+"."+element.container_extension;
             ancora.text = element.name;
+            ancora.style.display = "block";
             ancora.onclick = function(event) { 
                 ipcRenderer.send('openVLC', ancora.href);  
                 event.stopPropagation();
                 event.preventDefault();             
             };
             document.body.appendChild(ancora);
-            document.body.appendChild(document.createElement("br"));
         });        
     });
 });

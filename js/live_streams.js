@@ -15,13 +15,13 @@ window.addEventListener('DOMContentLoaded', () => {
             //http://tedesco.masterapp1.xyz/live/FABIANO4890/bYHJJ9XA5m/629.ts
             ancora.href = "http://tedesco.masterapp1.xyz/live/FABIANO4890/bYHJJ9XA5m/"+element.stream_id+".ts";
             ancora.text = element.name;
+            ancora.style.display = "block";
             ancora.onclick = function(event) { 
                 ipcRenderer.send('openVLC', ancora.href);  
                 event.stopPropagation();
                 event.preventDefault();             
             };
             document.body.appendChild(ancora);
-            document.body.appendChild(document.createElement("br"));
         });
 
     });
