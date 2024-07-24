@@ -207,3 +207,8 @@ ipcMain.on('openVLC', (event,data)=>{
 	*/
 });
 
+ipcMain.on('openVideo', (event,data)=>{
+
+	let url = "http://tedesco.masterapp1.xyz/"+data.type+"/FABIANO4890/bYHJJ9XA5m/"+data.stream;
+	var proc = child_process.spawn ("open -a VLC '"+url+"'", [], { shell: true });
+});
