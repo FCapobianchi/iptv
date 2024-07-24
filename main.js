@@ -4,8 +4,6 @@ const path = require('node:path');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
-const JSMpeg = require('@cycjimmy/jsmpeg-player');
-
 var child_process = require ("child_process");
 
 let storeWindow;
@@ -31,7 +29,7 @@ const createWindow = () => {
 			nodeIntegration: true,
 			contextIsolation: false,	
 			preload: path.join(__dirname, 'js/preload.js'),
-			webSecurity: false,
+			webSecurity: true,
 		} 
 	})
 	mainWindow.loadFile(path.join(__dirname, 'html/index.html'));
@@ -100,14 +98,14 @@ async function download(action, filePath) {
 	});
 }
 
-download("get_live_streams", path.join(app.getPath('userData'), 'live_streams.json'));
-download("get_live_categories", path.join(app.getPath('userData'), 'live_categories.json'));
+// download("get_live_streams", path.join(app.getPath('userData'), 'live_streams.json'));
+// download("get_live_categories", path.join(app.getPath('userData'), 'live_categories.json'));
 
-download("get_vod_streams", path.join(app.getPath('userData'), 'vod_streams.json'));
-download("get_vod_categories", path.join(app.getPath('userData'), 'vod_categories.json'));
+// download("get_vod_streams", path.join(app.getPath('userData'), 'vod_streams.json'));
+// download("get_vod_categories", path.join(app.getPath('userData'), 'vod_categories.json'));
 
-download("get_series", path.join(app.getPath('userData'), 'series.json'));
-download("get_series_categories", path.join(app.getPath('userData'), 'series_categories.json'));
+// download("get_series", path.join(app.getPath('userData'), 'series.json'));
+// download("get_series_categories", path.join(app.getPath('userData'), 'series_categories.json'));
 
 /**
  * ipcMain functions

@@ -1,16 +1,21 @@
-const {ipcRenderer} = require('electron');
+const { ipcRenderer } = require('electron');
 
 window.addEventListener('DOMContentLoaded', () => { 
-    document.getElementById("myInput").addEventListener("keyup", (event) => {
-        let myInput = document.getElementById("myInput");
-        let a = document.getElementsByTagName("a");
-        for (i = 0; i < a.length; i++) {
-            txtValue = a[i].textContent || a[i].innerText;
-            if (txtValue.toUpperCase().indexOf(myInput.value.toUpperCase()) > -1) {
-                a[i].style.display = "block";
-            } else {
-                a[i].style.display = "none";
+    let myInput =  document.getElementById("myInput");
+    if(myInput){
+        myInput.addEventListener("keyup", (event) => {
+            let p = document.getElementsByClassName("card-text");
+            for (i = 0; i < p.length; i++) {
+                txtValue = p[i].textContent || p[i].innerText;
+                console.log(p[i]);
+                if (txtValue.toUpperCase().indexOf(myInput.value.toUpperCase()) > -1) {
+                    p[i].closest(".col").style.display = "inline";
+                } else {
+                    p[i].closest(".col").style.display = "none";
+                }
             }
-        }
-    });
+        });
+    }
+
+
 });
