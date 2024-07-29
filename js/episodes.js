@@ -6,13 +6,35 @@ window.addEventListener('DOMContentLoaded', () => {
         // console.log('parseJson');
         // console.log(typeof data);
         let jSon = JSON.parse(data);
-        // console.log(typeof jSon);
+        let primary = document.getElementById("primary");
+        let defaultImage = document.getElementById("defaultImage");
+        console.log(jSon.info);
+
+        const img = document.createElement("img");
+        img.id = "defaultImage";
+        img.src = "../img/No-Image-Placeholder.svg";
+        img.dataset.src = jSon.info.cover;
+        img.loading = "lazy";
+        primary.appendChild(img);
+        
+        let p = document.createElement("p");
+        p.innerText = jSon.info.name;
+        primary.appendChild(p);
+
+        p = document.createElement("p");
+        p.innerText = jSon.info.genre;
+        primary.appendChild(p);
+
+        p = document.createElement("p");
+        p.innerText = jSon.info.cast;
+        primary.appendChild(p);
 
         var count = 0;
         Object.entries(jSon).forEach(([key,value]) => {
+            
 
-            console.log(key);
-            console.log(value);
+            // console.log(key);
+            // console.log(value);
             if (key ==="episodes")
                 Object.entries(value).forEach(([key,episodes]) => {		
                     Object.entries(episodes).forEach(([key,episode]) => {		
@@ -26,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             event.stopPropagation();
                             event.preventDefault();            
                         };
-                        document.body.appendChild(ancora);
+                        primary.appendChild(ancora);
                     });
 				
                 });

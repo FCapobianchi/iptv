@@ -5,6 +5,8 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 var child_process = require ("child_process");
+//let mpv = require('node-mpv');
+//let mpvPlayer = new mpv();
 
 let storeWindow;
 let mainWindow;
@@ -98,14 +100,14 @@ async function download(action, filePath) {
 	});
 }
 
-// download("get_live_streams", path.join(app.getPath('userData'), 'live_streams.json'));
-// download("get_live_categories", path.join(app.getPath('userData'), 'live_categories.json'));
+download("get_live_streams", path.join(app.getPath('userData'), 'live_streams.json'));
+download("get_live_categories", path.join(app.getPath('userData'), 'live_categories.json'));
 
-// download("get_vod_streams", path.join(app.getPath('userData'), 'vod_streams.json'));
-// download("get_vod_categories", path.join(app.getPath('userData'), 'vod_categories.json'));
+download("get_vod_streams", path.join(app.getPath('userData'), 'vod_streams.json'));
+download("get_vod_categories", path.join(app.getPath('userData'), 'vod_categories.json'));
 
-// download("get_series", path.join(app.getPath('userData'), 'series.json'));
-// download("get_series_categories", path.join(app.getPath('userData'), 'series_categories.json'));
+download("get_series", path.join(app.getPath('userData'), 'series.json'));
+download("get_series_categories", path.join(app.getPath('userData'), 'series_categories.json'));
 
 /**
  * ipcMain functions
@@ -210,5 +212,7 @@ ipcMain.on('openVLC', (event,data)=>{
 ipcMain.on('openVideo', (event,data)=>{
 
 	let url = "http://tedesco.masterapp1.xyz/"+data.type+"/FABIANO4890/bYHJJ9XA5m/"+data.stream;
+	console.log(url);
 	var proc = child_process.spawn ("open -a VLC '"+url+"'", [], { shell: true });
+	//mpvPlayer.load(url);
 });

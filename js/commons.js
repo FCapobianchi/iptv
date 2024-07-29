@@ -1,7 +1,7 @@
 function aggiungiDiv(element, data){
     let col = document.createElement("div");
     col.classList.add("col");
-    col.classList.add("col-2");
+    //col.classList.add("col-2");
     let card = document.createElement("div");
     card.classList.add("card"); 
     card.classList.add("shadow-sm"); 
