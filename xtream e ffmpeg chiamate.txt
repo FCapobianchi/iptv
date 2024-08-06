@@ -1,3 +1,9 @@
+ffmpeg -i http://tedesco.masterapp1.xyz/live/FABIANO4890/bYHJJ9XA5m/359225.ts -map 0 -c copy output.mkv
+ffmpeg -i http://tedesco.masterapp1.xyz/live/FABIANO4890/bYHJJ9XA5m/359225.ts -map 0 -c copy -ss 00:01:00 -t 10 output.mkv
+ffmpeg -i http://tedesco.masterapp1.xyz/live/FABIANO4890/bYHJJ9XA5m/359225.ts -codec: copy -hls_time 10 -hls_list_size 0 -f hls output.m3u8
+
+
+
 http://tedesco.masterapp1.xyz/get.php?username=FABIANO4890&password=bYHJJ9XA5m&type=m3u_plus&output=ts
 
 LIVES (player_api.php) :
